@@ -4,23 +4,25 @@
       <div class="alert alert-success d-flex justify-content-between align-items-center" v-if="$page.props.flash.message" role="alert">
         {{ $page.props.flash.message }}
       </div>
-      <h1>Create Car</h1>
       <div class="row justify-content-center">
         <div class="col-md-8">
           <div class="card">
+            <div class="card-header">
+            <h3>Add new car</h3>
+          </div>
             <div class="card-body">
               <form @submit.prevent="submitForm">
-                <div class="form-group">
+                <div class="form-group mb-4">
                   <label for="name">Name:</label>
                   <input type="text" class="form-control" id="name" v-model="form.name" :class="{ 'is-invalid': errors && errors.name }">
                   <div v-if="$page.props.errors && $page.props.errors.name" class="text-danger">{{ $page.props.errors.name }}</div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-4">
                   <label for="registration_number">Registration Number:</label>
                   <input type="text" class="form-control" id="registration_number" v-model="form.registration_number" :class="{ 'is-invalid': errors && errors.registration_number }">
                   <div v-if="$page.props.errors && $page.props.errors.registration_number" class="text-danger">{{ $page.props.errors.registration_number }}</div>
                 </div>
-                <div class="form-check">
+                <div class="form-check mb-4">
                   <input type="checkbox" class="form-check-input" id="is_registered" v-model="form.is_registered">
                   <label class="form-check-label" for="is_registered">Is Registered</label>
                 </div>
