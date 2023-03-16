@@ -15,10 +15,7 @@ use App\Http\Controllers\PartController;
 |
 */
 
-
-Route::get('/home', [CarController::class, 'index'])->name('index');
-
-Route::resource('cars', CarController::class); 
-Route::resource('parts', PartController::class); 
+Route::resource('cars', CarController::class);
+Route::resource('parts', PartController::class);
 
 
