@@ -39,13 +39,11 @@
 </template>
 
 <script>
-  import { usePage } from '@inertiajs/inertia-vue';
   import Layout from '../Layout.vue';
 
   export default {
     components: {
       Layout,
-      usePage,
     },
 
     props: {

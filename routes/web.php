@@ -14,6 +14,7 @@ use App\Http\Controllers\PartController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::redirect('/', '/cars');
 
 Route::resource('cars', CarController::class);
 Route::resource('parts', PartController::class);

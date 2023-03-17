@@ -25,15 +25,15 @@
                                 <span class="input-group-text" id="regnum-addon">Reg. Number</span>
                             </div>
                             <input type="text" class="form-control" placeholder="Search by Reg. number" aria-label="Search by registration number" aria-describedby="regnum-addon" v-model="form.serial_number">
-                            
+
                             <span class="input-group-text" id="regnum-addon">Car:</span>
-                            <select v-model="form.selectedCar" id="car"  class="form-control">
-                              <option value="" disabled>Find by a car</option>
-                              <option v-for="(car, index) in carOptions" :value="car.value" v-bind:key="index">{{ car.label }}</option>
+                            <select v-model="form.selectedCar" id="car" class="form-control">
+                                <option value="" disabled>Find by a car</option>
+                                <option v-for="(car, index) in carOptions" :value="car.value" v-bind:key="index">{{ car.label }}</option>
                             </select>
-                            
+
                             <div class="input-group-append">
-                                <button class="btn btn-primary" @click="search">Search</button>
+                                <button class="btn btn-primary ml-2" @click="search">Search</button>
                             </div>
                         </div>
                     </div>
@@ -42,6 +42,7 @@
                     <table class="table table-bordered">
                         <thead class="table-dark">
                             <tr>
+                                <th>#</th>
                                 <th>Name</th>
                                 <th>Serial Number</th>
                                 <th>Belongs to car</th>
@@ -50,6 +51,7 @@
                         </thead>
                         <tbody>
                             <tr v-for="(part, index) in parts" :key="index">
+                                <td>{{ index + 1 }}</td>
                                 <td>{{ part.name }}</td>
                                 <td>{{ part.serial_number }}</td>
                                 <td>{{ part.car.name }}</td>
@@ -62,6 +64,11 @@
                                 </td>
                             </tr>
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5" class="text-end"><strong>Total parts: {{ parts.length }}</strong></td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
@@ -72,14 +79,10 @@
 
 <script>
 import Layout from '../Layout.vue';
-import {
-    usePage
-} from '@inertiajs/inertia-vue';
 
 export default {
     components: {
-        Layout,
-        usePage,
+        Layout
     },
 
     data() {
